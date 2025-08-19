@@ -1,0 +1,4 @@
+body { font-family: Arial, sans-serif; background: #f9f9f9; }
+.container { width: 80%; margin: auto; padding: 20px; }
+.gallery img { margin: 10px; border: 1px solid #ccc; border-radius: 8px; }
+nav a { margin: 0 10px; text-decoration: none; color: #333; }
