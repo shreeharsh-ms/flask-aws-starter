@@ -32,4 +32,5 @@ jobs:
       - name: Run new container
         run: |
           IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/flask-aws-starter-app-dev:latest
-          docker run -d --name flask-aws-starter-app-dev -p 80:5000 $IMAGE_NAME
+          docker run -d --name flask-aws-starter-app-dev -p 8080:5000 $IMAGE_NAME
+
