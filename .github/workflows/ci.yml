@@ -25,7 +25,8 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: pytest
+        run: PYTHONPATH=. pytest
+
 
       - name: Log in to Docker Hub
         if: success()   # only runs if pytest passed
