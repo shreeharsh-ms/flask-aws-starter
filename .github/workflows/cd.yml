@@ -20,14 +20,14 @@ jobs:
 
       - name: Pull latest image
         run: |
-          IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/flask-aws-starter-APP-DEV:latest
+          IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/flask-aws-starter-app-dev:latest
           docker pull $IMAGE_NAME
 
       - name: Stop and remove old container
         run: |
-          docker ps -q --filter "name=flask-aws-starter-APP-DEV" | grep -q . && docker stop flask-aws-starter-APP-DEV && docker rm flask-aws-starter-APP-DEV || echo "No old container"
+          docker ps -q --filter "name=flask-aws-starter-app-dev" | grep -q . && docker stop flask-aws-starter-app-dev && docker rm flask-aws-starter-app-dev || echo "No old container"
 
       - name: Run new container
         run: |
-          IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/flask-aws-starter-APP-DEV:latest
-          docker run -d --name flask-aws-starter-APP-DEV -p 80:5000 $IMAGE_NAME
+          IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/flask-aws-starter-app-dev:latest
+          docker run -d --name flask-aws-starter-app-dev -p 80:5000 $IMAGE_NAME
