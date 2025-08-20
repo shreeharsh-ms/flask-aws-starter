@@ -28,3 +28,19 @@ def health():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route("/handle-file", methods=["POST"])
+def handle_file():
+    data = request.json
+    filename = data.get("filename")
+    if filename:
+        print(f"Received notification for file: {filename}")
+        # Add your processing logic here, e.g.:
+        process_file(filename)
+        return jsonify({"message": f"Processed file {filename}"}), 200
+    else:
+        return jsonify({"error": "Filename missing"}), 400
+
+def process_file(filename):
+    # Implement your custom processing logic here
+    print(f"Processing file: {filename}")
