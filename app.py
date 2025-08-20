@@ -3,7 +3,6 @@ from utils.s3_helper import upload_file_to_s3, list_files_in_s3
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def index():
     return redirect("/upload")
