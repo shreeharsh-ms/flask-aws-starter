@@ -5,6 +5,7 @@ import os
 AWS_REGION = os.getenv("AWS_REGION", "ap-south-1")  
 S3_BUCKET = os.getenv("S3_BUCKET", "flask-app-images-dev")
 
+
 # Create S3 client – no keys needed, boto3 will use IAM role
 s3_client = boto3.client("s3", region_name=AWS_REGION)
 
