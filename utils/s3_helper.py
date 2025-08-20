@@ -1,12 +1,12 @@
 import boto3
-from config import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, S3_BUCKET
+import os
 
-s3_client = boto3.client(
-    "s3",
-    aws_access_key_id=AWS_ACCESS_KEY_ID,
-    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-    region_name=AWS_REGION
-)
+# Get values from environment (only region + bucket needed)
+AWS_REGION = os.getenv("AWS_REGION", "ap-south-1")  
+S3_BUCKET = os.getenv("S3_BUCKET", "flask-app-images-dev")
+
+# Create S3 client – no keys needed, boto3 will use IAM role
+s3_client = boto3.client("s3", region_name=AWS_REGION)
 
 def upload_file_to_s3(file_obj, filename):
     """Upload file object to S3"""
